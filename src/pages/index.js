@@ -1,48 +1,24 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-
-const Home = () => {
-
-    const [counter, setCounter] = useState(0)
-
-    const theme = {
-        blue: {
-            default: '#0096FF',
-            hover: '#002366'
-        }
-    }
-
-    const Button = styled.button`
-        background-color: ${(props) => theme[props.theme].default};
-        color: white;
-        border: none;
-        margin-left: 10px;
-        display: flex;
-        border-radius: 2pt;
-        &:hover {
-            background-color: ${(props) => theme[props.theme].hover}
-        }
-    `;
-
-    Button.defaultProps = {
-        theme: "blue"
-    }
-
-    function clickMe() {
-        setCounter(counter => counter + 10)
-    }
-
-    function clickMe2() {
-        setCounter(counter => counter * 2)
-    }
-
-    function clickMe3() {
-        setCounter(counter => counter - 10)
-    }
-
+import React from "react";
+import logo from "./assets/logo.jpg";
+const book = {
+    name: 'Убийства по алфавиту',
+    bookAuthor: 'Aгата кристи',
+    ganre: 'Детектив',
+    pageCount: 321,
+    review: 'Одна из лучших книг Агаты Кристи. Как можно было додуматься до такой концепции убийства до сих пор не могу понять. Браво',
+    img: 'assets/k.jpg'
+}
+const Book = () => {
     return (
-        <div>{counter} <h1><Button onClick={clickMe}>+10</Button></h1><h1><Button onClick={clickMe2}>x2</Button></h1><h1><Button onClick={clickMe3}>-10</Button></h1></div>
+        <div>
+            <h1>Название книги: {book.name} </h1>
+            <h3>ФИО автора: {book.bookAuthor}</h3>
+            <h4>Жанр: {book.ganre}</h4>
+            <p>Кол-во страниц: {book.pageCount}</p>
+            <p>Рецензия: {book.review}</p>
+            <img src={logo} className='logo'></img>
+        </div>
     );
-};
+}
 
-export default Home;
+export default Book;
